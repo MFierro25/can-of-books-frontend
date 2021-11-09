@@ -1,3 +1,10 @@
+
+# Project Name
+
+
+**Author**: Team Member Names Goes Here
+**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
+=======
 # Can Of Books
 
 **Author**: Miguel Fierro, K'lan Stovell
@@ -6,8 +13,17 @@
 ## Overview
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 
-Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. Build out this code base to create an web app to track what books have impacted you, and what's recommended to read next.
 
+
+Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. We built a web app to track what books have impacted you, and what's recommended to read next.
+
+## Getting Started
+<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+
+## Architecture
+<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
+
+=======
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
 
@@ -51,6 +67,7 @@ Start time: <br>
 Finish time: <br>
 Actual time needed to complete: <br>
 
+
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
@@ -59,5 +76,11 @@ Actual time needed to complete: <br>
 ## Estimates
 <!-- See below -->
 
+
+
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+=======
+## Credit and Collaborations
+<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
