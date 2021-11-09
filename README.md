@@ -1,10 +1,3 @@
-
-# Project Name
-
-
-**Author**: Team Member Names Goes Here
-**Version**: 1.0.0 (increment the patch/fix version number if you make more commits past your first submission)
-=======
 # Can Of Books
 
 **Author**: Miguel Fierro, K'lan Stovell
@@ -14,18 +7,11 @@
 <!-- Provide a high level overview of what this application is and why you are building it, beyond the fact that it's an assignment for this class. (i.e. What's your problem domain?) -->
 
 
-
 Books are life-changing. They have the power to enlighten, educate, entertain, heal, and help us grow. We built a web app to track what books have impacted you, and what's recommended to read next.
 
 ## Getting Started
 <!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
-
-## Architecture
-<!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
-
-=======
-## Getting Started
-<!-- What are the steps that a user must take in order to build this app on their own machine and get it running? -->
+You will be prompted to login and a collection of books will be shown to you.
 
 ## Architecture
 <!-- Provide a detailed description of the application design. What technologies (languages, libraries, etc) you're using, and any other relevant design information. -->
@@ -61,26 +47,24 @@ Books are life-changing. They have the power to enlighten, educate, entertain, h
 ###### How will you approach each other and the challenge of building an application knowing that it is impossible for two people to be at the exact same place in understanding and skill level? 
 - Talk through each others code and asking questions how certain things work. Explain to each other why we did a certain thing. 
 
-#### Name of feature: <br>
-Estimate of time needed to complete: <br>
-Start time: <br>
-Finish time: <br>
-Actual time needed to complete: <br>
-
 
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
+11/08/2021 5:30 pm - created login form and book component carousel.
 
 ## Estimates
 <!-- See below -->
 
+#### Name of feature: Book Componennt <br>
+Estimate of time needed to complete: 2 hours<br>
+Start time: 2:50 <br>
+Finish time: 5:30 <br>
+Actual time needed to complete: almost 3 hrs <br>
 
 
 ## Credit and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
-=======
-## Credit and Collaborations
-<!-- Give credit (and a link) to other people or resources that helped you build this application. -->
+
 
