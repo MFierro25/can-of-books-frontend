@@ -13,7 +13,7 @@ class BestBooks extends React.Component {
   /* TODO: Make a GET request to your API to fetch books for the logged in user  */
 
   getBooks = async (title = null) => {
-    let apiUrl = `http://localhost:3001/books`
+    let apiUrl = `${process.env.REACT_APP_SERVER}`
 
     if (title) {
       apiUrl += `?title=${title}`;
