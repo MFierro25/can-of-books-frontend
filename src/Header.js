@@ -3,7 +3,7 @@ import { Navbar, NavItem } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './Header.css';
 import LogoutButton from './LogoutButton';
-import AddBook from './AddBook'
+
 
 class Header extends React.Component {
   render() {
