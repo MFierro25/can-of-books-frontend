@@ -53,6 +53,7 @@ You will be prompted to login and a collection of books will be shown to you.
 
 01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
 11/08/2021 5:30 pm - created login form and book component carousel.
+11/09/2021 5:51 pm - created buttons to add and delete books to library
 
 ## Estimates
 <!-- See below -->
@@ -61,6 +62,11 @@ You will be prompted to login and a collection of books will be shown to you.
 Estimate of time needed to complete: 2 hours<br>
 Start time: 2:50 <br>
 Finish time: 5:30 <br>
+Actual time needed to complete: almost 3 hrs <br>
+#### Name of feature: POST/Delete <br>
+Estimate of time needed to complete: 2 hours<br>
+Start time: 2:30 <br>
+Finish time: 5:50 <br>
 Actual time needed to complete: almost 3 hrs <br>
 
 
