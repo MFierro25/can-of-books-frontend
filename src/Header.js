@@ -3,6 +3,7 @@ import { Navbar, NavItem } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 import './Header.css';
 import LogoutButton from './LogoutButton';
+import AddBook from './AddBook'
 
 class Header extends React.Component {
   render() {
@@ -12,6 +13,7 @@ class Header extends React.Component {
         <NavItem><Link to="/" className="nav-link">Home</Link></NavItem>
         {this.props.user ? <NavItem><Link to="/profile" className="nav-link">Profile</Link></NavItem> : ''} 
         {this.props.user ? <NavItem><LogoutButton /></NavItem> : ''}
+        
       </Navbar>
     )
   }

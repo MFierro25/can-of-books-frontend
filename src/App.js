@@ -11,6 +11,7 @@ import {
   Route
 } from "react-router-dom";
 
+
 class App extends React.Component {
 
   constructor(props) {
@@ -32,9 +33,6 @@ class App extends React.Component {
     })
   }
 
-  // handleClick () => {
-
-  // }
 
   render() {
     return (
