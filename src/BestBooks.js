@@ -15,7 +15,7 @@ class BestBooks extends React.Component {
 
 
   getBooks = async (email = null) => {
-    let apiUrl = `http://localhost:3001/books`
+    let apiUrl = `${process.env.REACT_APP_SERVER_URL}/books`
 
     if (email) {
       apiUrl += `?email=${email}`;
@@ -29,14 +29,14 @@ class BestBooks extends React.Component {
   }
 
   postBook = async (bookObj) => {
-    const apiUrl = `http://localhost:3001/books`
+    const apiUrl = `${process.env.REACT_APP_SERVER_URL}/books`
     let res = await axios.post(apiUrl, bookObj);
     this.setState( {books: [...this.state.books, res.data]})
     
   }
   
   deleteBook = async (id) => {
-    const apiUrl = `http://localhost:3001/books/${id}`;
+    const apiUrl = `${process.env.REACT_APP_SERVER_URL}/books/${id}`;
     await axios.delete(apiUrl);
     let filteredBook = this.state.books.filter(book => book._id !== id);
     this.setState({ books: filteredBook});
