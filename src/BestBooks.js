@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios'
 import Carousel from 'react-bootstrap/Carousel'
+import AddBook from './AddBook';
+import './App.css'
+import Book from './Book'
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -10,13 +13,12 @@ class BestBooks extends React.Component {
     }
   }
 
-  /* TODO: Make a GET request to your API to fetch books for the logged in user  */
 
-  getBooks = async (title = null) => {
-    let apiUrl = `${process.env.REACT_APP_SERVER}`
+  getBooks = async (email = null) => {
+    let apiUrl = `http://localhost:3001/books`
 
-    if (title) {
-      apiUrl += `?title=${title}`;
+    if (email) {
+      apiUrl += `?email=${email}`;
     }
     try {
       const response = await axios.get(apiUrl);
@@ -25,7 +27,20 @@ class BestBooks extends React.Component {
       console.log(error);
     }
   }
+
+  postBook = async (bookObj) => {
+    const apiUrl = `http://localhost:3001/books`
+    let res = await axios.post(apiUrl, bookObj);
+    this.setState( {books: [...this.state.books, res.data]})
+    
+  }
   
+  deleteBook = async (id) => {
+    const apiUrl = `http://localhost:3001/books/${id}`;
+    await axios.delete(apiUrl);
+    let filteredBook = this.state.books.filter(book => book._id !== id);
+    this.setState({ books: filteredBook});
+  }
 
   componentDidMount() {
     this.getBooks()
@@ -36,16 +51,17 @@ class BestBooks extends React.Component {
       <>
     
         <h2>My Essential Library:</h2>
-
-          <Carousel fade>
+          <Carousel variant="dark" id='carouselItems'>
           {this.state.books.length > 0 ? this.state.books.map(book =>
-          <Carousel.Item>
-              <h3>{book.title}</h3>
-              <p>{book.description}</p>
-            
+          <Carousel.Item key={book._id} interval={100000}>
+
+          <Book book={book} deleteBook={this.deleteBook} />
+          
           </Carousel.Item>
            )  : <p> Books coming soon</p> } 
         </Carousel>
+        <AddBook postBook={this.postBook} />
+        
        
       </>
     )
