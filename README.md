@@ -51,10 +51,10 @@ You will be prompted to login and a collection of books will be shown to you.
 ## Change Log
 <!-- Use this area to document the iterative changes made to your application as each feature is successfully implemented. Use time stamps. Here's an example:
 
-01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. -->
-11/08/2021 5:30 pm - created login form and book component carousel.
-11/09/2021 5:51 pm - created buttons to add and delete books to library
-11/10/2021 4:50 pm - createad update form to change books and talk to database
+01-01-2001 4:59pm - Application now has a fully-functional express server, with a GET route for the location resource. <br>
+11/08/2021 5:30 pm - created login form and book component carousel. <br>
+11/09/2021 5:51 pm - created buttons to add and delete books to library <br>
+11/10/2021 4:50 pm - createad update form to change books and talk to database <br>
 
 ## Estimates
 <!-- See below -->
