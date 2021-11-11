@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import Button from 'react-bootstrap/Button'
 import BookFormModal from './BookFormModal';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusCircle } from '@fortawesome/free-solid-svg-icons';
 
 export default class AddBook extends Component {
     
@@ -17,8 +19,9 @@ super(props);
     render() {
         return (
             <div>
-                <Button variant="secondary" onClick={this.showModal}>
-                    Add Book
+                <Button variant="secondary" onClick={this.showModal}><FontAwesomeIcon icon={faPlusCircle}>
+                </FontAwesomeIcon>
+                &ensp; Add Book 
                 </Button>
                 <BookFormModal show={this.state.show} hideModal={this.hideModal} postBook={this.props.postBook}/>
             </div>

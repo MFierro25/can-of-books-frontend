@@ -2,3 +2,9 @@
   margin: auto;
   text-align: center;
 }
+
+.carousel-inner {
+  height: 175px !important;
+  width: 100% !important;
+  justify-content: center;
+}

@@ -11,9 +11,9 @@ export default class BookCarousel extends Component {
                 <Container>
                     <Carousel variant="dark" id='carouselItems'>
                     {this.props.books.map(book =>
-                    <Carousel.Item key={book._id}>
+                    <Carousel.Item  key={book._id}>
                         <Book book={book} deleteBook={this.props.deleteBook} updateBook={this.props.updateBook}/>
-                    </Carousel.Item>
+                    </Carousel.Item> 
                     )} 
                     </Carousel>
                 </Container>
