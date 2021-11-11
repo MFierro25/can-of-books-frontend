@@ -3,21 +3,26 @@ import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 
-export default class BookFormModal extends Component {
-
+export default class UpdateModal extends Component {
+    
     handleSubmit = (event) => {
         event.preventDefault()
-        const title = event.target.formTitle.value;
-        const description = event.target.formDescription.value;
-        const status = event.target.formStatusCheckbox.checked;
+        
+        const updateBookObj={
+            title: event.target.formTitle.value,
+            description: event.target.formDescription.value,
+            status: event.target.formStatusCheckbox.checked,
+            id: this.props.book._id,
+        }
 
-        const newBookObj = { title, description, status };
-        this.props.postBook(newBookObj);
+        this.props.updateBook(updateBookObj);
     }
+
     render() {
 
         return (
-                <div>
+            <div>
+                 <div>
                     <Modal show={this.props.show} onHide={this.props.hideModal} size="lg" aria-labelledby="contained-modal-title-vcenter" centered>
                     <Modal.Header closeButton>
                     <Modal.Title id="contained-modal-title-vcenter">
@@ -32,17 +37,18 @@ export default class BookFormModal extends Component {
                                 </Form.Group>
                                 <Form.Group controlId='formDescription'>
                                     <Form.Label>Description:</Form.Label>
-                                    <Form.Control as='textarea' placeholder='Enter description of title' style={{ height: '125px' }} />
+                                    <Form.Control as='textarea' placeholder='Enter new description' style={{ height: '125px' }} />
                                 </Form.Group>
                                 <Form.Group controlId='formStatusCheckbox'>
                                     <Form.Check type='checkbox' label='Has read' />
                                 </Form.Group>
-                                <Button type='submit' onClick={this.props.hideModal}>Add to your library</Button>
+                                <Button type='submit' onClick={this.props.hideModal}>Update</Button>
                             </Form>
                         </Modal.Body>
                
                 </Modal>
                 </div>
+            </div>
         )
     }
 }

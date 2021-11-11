@@ -1,9 +1,9 @@
 import React from 'react';
 import axios from 'axios'
-import Carousel from 'react-bootstrap/Carousel'
 import AddBook from './AddBook';
 import './App.css'
-import Book from './Book'
+import BookCarousel from './BookCarousel';
+
 
 class BestBooks extends React.Component {
   constructor(props) {
@@ -14,55 +14,55 @@ class BestBooks extends React.Component {
   }
 
 
-  getBooks = async (email = null) => {
-    let apiUrl = `${process.env.REACT_APP_SERVER_URL}/books`
-
-    if (email) {
-      apiUrl += `?email=${email}`;
+  getBooks = async () => {
+    let url = `${process.env.REACT_APP_SERVER_URL}/books?email=${this.props.email}`;
+    console.log(url);
+    let res = await axios.get(url)
+    this.setState( { books: res.data });
     }
-    try {
-      const response = await axios.get(apiUrl);
-      this.setState( {books: response.data });
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
-  postBook = async (bookObj) => {
-    const apiUrl = `${process.env.REACT_APP_SERVER_URL}/books`
-    let res = await axios.post(apiUrl, bookObj);
+  postBook = async (newBookObj) => {
+    const url = `${process.env.REACT_APP_SERVER_URL}/books?email=${this.props.email}`
+    let res = await axios.post(url, newBookObj);
     this.setState( {books: [...this.state.books, res.data]})
     
   }
   
   deleteBook = async (id) => {
-    const apiUrl = `${process.env.REACT_APP_SERVER_URL}/books/${id}`;
-    await axios.delete(apiUrl);
+    const url = `${process.env.REACT_APP_SERVER_URL}/books/${id}?email=${this.props.email}`;
     let filteredBook = this.state.books.filter(book => book._id !== id);
-    this.setState({ books: filteredBook});
+    try {
+     await axios.delete(url);
+     this.setState({ books: filteredBook});
+   } catch (e) {
+   console.error(e); 
+  }
+}
+
+  updateBook = async (updateBookObj) => {
+    const url =`${process.env.REACT_APP_SERVER_URL}/books/${updateBookObj.id}?email=${this.props.email}`;
+    try {
+      let res = await axios.put(url, updateBookObj);
+      let filteredBook = [...this.state.books].filter(book => book._id !== res.data.id);
+      this.setState({ books: filteredBook });
+      this.getBooks();
+    } catch (e) {
+      console.error(e);
+    }
   }
 
+
   componentDidMount() {
-    this.getBooks()
+    this.getBooks();
   }
+
   render() {
 
     return (
       <>
-    
         <h2>My Essential Library:</h2>
-          <Carousel variant="dark" id='carouselItems'>
-          {this.state.books.length > 0 ? this.state.books.map(book =>
-          <Carousel.Item key={book._id} interval={100000}>
-
-          <Book book={book} deleteBook={this.deleteBook} />
-          
-          </Carousel.Item>
-           )  : <p> Books coming soon</p> } 
-        </Carousel>
+        <BookCarousel books={this.state.books} deleteBook={this.deleteBook} updateBook={this.updateBook} />
         <AddBook postBook={this.postBook} />
-        
-       
       </>
     )
   }

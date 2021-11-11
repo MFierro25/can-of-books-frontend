@@ -7,7 +7,7 @@ class Profile extends Component {
     /* STRETCH TODO: if no logged in user then redirect home */
     return (
     <div>
-      <p>{this.props.user}</p>
+      <h3>{this.props.user}</h3>
     </div>) 
   }
 };

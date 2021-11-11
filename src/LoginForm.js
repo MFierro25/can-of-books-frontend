@@ -33,7 +33,7 @@ class LoginForm extends Component {
 
         <Form.Group className="mb-3" controlId="formBasicUsername">
         <Form.Label>User Name:</Form.Label>
-        <Form.Control onChange={this.handleChange} type="text" placeholder="Enter User Name" />
+        <Form.Control type="text" placeholder="Enter User Name" />
         </Form.Group>
           <Button onClick={this.handleClick} variant="primary" type="submit">
             Submit
