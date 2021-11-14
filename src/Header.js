@@ -5,6 +5,7 @@ import './Header.css';
 import LogoutButton from './LogoutButton';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faHome } from '@fortawesome/free-solid-svg-icons';
+import { withAuth0 } from "@auth0/auth0-react";
 
 
 
@@ -17,9 +18,9 @@ class Header extends React.Component {
           <Link to="/" className="nav-link">
           <FontAwesomeIcon icon={faHome}></FontAwesomeIcon>&ensp; Home</Link>
         </NavItem>
-        {this.props.user ? <NavItem><Link to="/profile" className="nav-link">
+        {this.props.auth0.isAuthenticated ? <NavItem><Link to="/profile" className="nav-link">
           <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>&ensp; Profile </Link></NavItem> : ''} 
-        {this.props.user ? 
+        {this.props.auth0.isAuthenticated ? 
         <NavItem><LogoutButton /></NavItem> : ''}
         
       </Navbar>
@@ -27,4 +28,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withAuth0(Header);
