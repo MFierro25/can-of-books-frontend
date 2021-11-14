@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import BestBooks from './BestBooks.js';
 import Login from './Login.js';
 import Profile from './Profile'
+import { withAuth0 } from '@auth0/auth0-react';
 import { 
   BrowserRouter as Router,
   Switch,
@@ -18,19 +19,21 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: null,
+      user: '',
+      email: ''
     }
   }
 
-  loginHandler = (user) => {
+  loginHandler = (user, email) => {
     this.setState({
-      user,
+      user, email
     })
   }
 
   logoutHandler = () => {
     this.setState({
       user: null,
+      email: null,
     })
   }
 
@@ -39,13 +42,13 @@ class App extends React.Component {
     return (
       <>
         <Router>
-          <Header user={this.state.user} onLogout={this.logoutHandler} />
+          <Header user={this.props.auth0} onLogout={this.logoutHandler} />
           <Switch>
             <Route exact path="/">
-              {this.state.user ? <BestBooks email={this.state.user} /> : <Login loginHandler={this.loginHandler} />} 
+              {this.props.auth0.isAuthenticated ? <BestBooks user={this.state.user} /> : <Login />} 
             </Route>
           <Route exact path='/profile'>
-            {this.state.user ? <Profile user={this.state.user}/> : "please login"}
+            {this.props.auth0.isAuthenticated && <Profile />}
             </Route>
           </Switch>
           <Footer />
@@ -55,4 +58,4 @@ class App extends React.Component {
   }
 }
 
-export default App;
+export default withAuth0(App);

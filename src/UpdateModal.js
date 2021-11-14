@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import Modal from 'react-bootstrap/Modal'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
+import { withAuth0 } from '@auth0/auth0-react'
 
-export default class UpdateModal extends Component {
+class UpdateModal extends Component {
     
     handleSubmit = (event) => {
         event.preventDefault()
@@ -13,6 +14,7 @@ export default class UpdateModal extends Component {
             description: event.target.formDescription.value,
             status: event.target.formStatusCheckbox.checked,
             id: this.props.book._id,
+            email: this.props.auth0.user.email,
         }
 
         this.props.updateBook(updateBookObj);
@@ -52,3 +54,4 @@ export default class UpdateModal extends Component {
         )
     }
 }
+export default withAuth0(UpdateModal);
